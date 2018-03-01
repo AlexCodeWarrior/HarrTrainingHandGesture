@@ -1,0 +1,128 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf200
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 TimesNewRomanPSMT;\f2\fnil\fcharset0 Menlo-Regular;
+\f3\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red27\green31\blue34;\red255\green255\blue255;\red0\green0\blue0;
+\red255\green255\blue255;\red28\green0\blue207;\red35\green255\blue6;\red0\green0\blue0;\red3\green36\blue56;
+}
+{\*\expandedcolortbl;;\cssrgb\c14118\c16078\c18039;\cssrgb\c100000\c100000\c100000;\csgenericrgb\c0\c0\c0;
+\csgray\c100000;\csgenericrgb\c11000\c0\c81000;\cssrgb\c0\c100000\c0;\cssrgb\c0\c0\c0;\cssrgb\c0\c18824\c28235;
+}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx1898\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs24 \cf0 Tuesday Februaryry 27, 2018 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0 \cf0 \
+\
+\
+Upload various picture of the hand with the black background \
+\
+Resized and rescaled sampled pictured using mogrify tool  and put in different path \
+->Folder : Background \
+\
+Ran a processing sketch called No black pixel \
+->Folder: Background\
+\
+
+\f1 \cf2 \expnd0\expndtw0\kerning0
+This goes through all images in a selected directory and changes any completely black pixels (rgb(0,0,0)) to slightly lighter (rgb(1,1,1)).\
+\
+\
+Next i will use photoshop to make background  \
+\
+
+\fs32 \cb3 paint all background areas completely black (rgb(0,0,0)).\
+  \
+\
+
+\b Wednesday February 28,2018 \
+\
+
+\b0 I used photoshop tool to make background  as black as possible to be able to take out background in  later steps \
+\
+time : 10 pm - 12pm \
+\
+-> Folder: Black_Background\
+\
+
+\b Thursday March 1, 2018 \
+
+\b0 10: 30 am - 11 am \
+\
+Used Processing script to be able to cropped image to  a 1:1 aspect ration \
+\
+Processing script name: positiveCollectionTagger \
+\
+Folder name: sketch_180301 \
+location : Flash drive  - main root \
+contents:\
+-sketch_180301 \
+Fold.->data\
+	Fold.-> positive-clean\
+	Fold.->positive-clean-cropped\
+-sketch_180301a.pde\
+\
+Now we are ready to move on to next step we are going to use are prepared positive-clean-cropped pictures. \
+\
+Example Script: \
+\
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+
+\f2\fs22 \cf4 \cb5 \kerning1\expnd0\expndtw0 opencv_createsamples -img  p/\cf6 100\cf4 _\cf6 3101.\cf4 jpg -bg bg.txt -info info/sample1.txt -pngoutput info -num \cf6 128\cf4   -maxxangle \cf6 0.0\cf4  -maxyangle \cf6 0.0\cf4  -maxzangle \cf6 0.3\cf4  -w \cf6 20\cf4   -h \cf6 20\cf4   -bgcolor \cf6 0\cf4  -bgthresh \cf6 8\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 {{\NeXTGraphic Pasted Graphic 1.tiff \width9580 \height12660 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\fs32 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\
+   \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Pasted Graphic.tiff \width2980 \height3300 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\fs32 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\
+\
+\
+I think it looks good  \
+\
+Created script that will do it for 15 samples \
+\
+Merge all file into one text file \
+\
+15 samples X 128 backgrounds = 1920 positives \
+\
+cat sample*.txt > positives.txt \
+\
+\
+Next Create Vector \
+\
+\pard\pardeftab720\sl440\partightenfactor0
+
+\f3\fs38\fsmilli19200 \cf7 \cb8 opencv_createsamples \\\
+-info sampleImageDirectory/positives.txt \\\
+-bg negativeImageDirectory/negatives.txt \\\
+-vec cropped.vec \\\
+-num 1920 -w 48 -h 48\
+
+\f1\fs32 \cf2 \cb3 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs28 \cf2 \cb1 opencv_createsamples -info info/positives.txt  -bg bg.txt -vec cropped.vec -num 1920 -w 20 -h 20  \
+\
+\
+opencv_traincascade -data outputDirectory -vec cropped.vec -bg bg.txt -numPos 1000 -numNeg 600 -numStages 10 -precalcValBufSize 2048   - 
+\f3 \cf9 \cb3 precalcIdxBufSize 2048 -featureType HAAR  -w 20 -h 20  
+\f1 \cf2 \cb1 \
+\
+Failed . \
+\
+ One plaussibibilty might be that the hand had open fingers and  i marked the hand as a square within open space .  \
+\
+}
